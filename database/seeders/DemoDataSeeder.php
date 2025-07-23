@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Dealership;
-use App\Models\Permission;
-use App\Models\Store;
+use App\Domains\Dealership\Models\Dealership;
+use App\Domains\Permission\Models\Permission;
+use App\Domains\Store\Models\Store;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

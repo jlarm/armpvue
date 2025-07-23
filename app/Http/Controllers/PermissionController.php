@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Domains\Permission\Models\Permission;
 use App\Http\Requests\PermissionRequest;
 use App\Http\Resources\PermissionResource;
-use App\Models\Permission;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class PermissionController extends Controller
