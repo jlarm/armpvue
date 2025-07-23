@@ -83,10 +83,10 @@ class User extends Authenticatable
         return $this->hasMany(Dealership::class, 'created_by');
     }
 
-    public function audits(): HasMany
-    {
-        return $this->hasMany(Audit::class, 'created_by');
-    }
+//    public function audits(): HasMany
+//    {
+//        return $this->hasMany(Audit::class, 'created_by');
+//    }
 
     public function isAdmin(): bool
     {
