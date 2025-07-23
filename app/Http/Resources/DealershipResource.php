@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Dealership;
+use App\Domains\Dealership\Models\Dealership;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

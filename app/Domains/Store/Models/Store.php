@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Domains\Store\Models;
 
+use App\Domains\Dealership\Models\Dealership;
+use App\Models\User;
+use App\Models\UserPermission;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

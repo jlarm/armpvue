@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Permission;
+use App\Domains\Permission\Models\Permission;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Dealership;
-use App\Models\Store;
+use App\Domains\Dealership\Models\Dealership;
+use App\Domains\Store\Models\Store;
 use App\Models\User;
 use App\Policies\DealershipPolicy;
 use App\Policies\StorePolicy;

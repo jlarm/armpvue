@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Dealership;
-use App\Models\Store;
+use App\Domains\Dealership\Models\Dealership;
+use App\Domains\Store\Models\Store;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

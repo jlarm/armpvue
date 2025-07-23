@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Domains\Dealership\Models\Dealership;
 use App\Http\Requests\DealershipRequest;
 use App\Http\Resources\DealershipResource;
-use App\Models\Dealership;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Inertia\Inertia;
 use Inertia\Response;

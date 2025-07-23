@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Domains\Store\Models\Store;
 use App\Http\Requests\StoreRequest;
 use App\Http\Resources\StoreResource;
-use App\Models\Store;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class StoreController extends Controller
