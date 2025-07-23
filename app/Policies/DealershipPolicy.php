@@ -27,13 +27,39 @@ class DealershipPolicy
         return $user->canAccessDealership($dealership->id);
     }
 
-    public function create(User $user) {}
+    public function create(User $user): bool
+    {
+        return $user->isAdmin() || $user->isConsultant();
+    }
 
-    public function update(User $user, Dealership $dealership) {}
+    public function update(User $user, Dealership $dealership): bool
+    {
+        if ($user->isAdmin()) {
+            return true;
+        }
 
-    public function delete(User $user, Dealership $dealership) {}
+        if ($user->isConsultant()) {
+            return $user->canAccessDealership($dealership->id);
+        }
 
-    public function restore(User $user, Dealership $dealership) {}
+        return false;
+    }
 
-    public function forceDelete(User $user, Dealership $dealership) {}
+    public function delete(User $user, Dealership $dealership): bool
+    {
+        return $user->isAdmin();
+    }
+
+    public function assignUsers(User $user, Dealership $dealership): bool
+    {
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isConsultant()) {
+            return $user->canAccessDealership($dealership->id);
+        }
+
+        return false;
+    }
 }

@@ -12,30 +12,46 @@ class StorePolicy
 
     public function viewAny(User $user): bool
     {
-
+        return true; // All authenticated users can view stores
     }
 
     public function view(User $user, Store $store): bool
     {
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        return $user->canAccessDealership($store->dealership_id);
     }
 
     public function create(User $user): bool
     {
+        return $user->isAdmin() || $user->isConsultant();
     }
 
     public function update(User $user, Store $store): bool
     {
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isConsultant()) {
+            return $user->canAccessDealership($store->dealership_id);
+        }
+
+        return false;
     }
 
     public function delete(User $user, Store $store): bool
     {
-    }
+        if ($user->isAdmin()) {
+            return true;
+        }
 
-    public function restore(User $user, Store $store): bool
-    {
-    }
+        if ($user->isConsultant()) {
+            return $user->canAccessDealership($store->dealership_id);
+        }
 
-    public function forceDelete(User $user, Store $store): bool
-    {
+        return false;
     }
 }
