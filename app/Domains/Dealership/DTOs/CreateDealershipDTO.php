@@ -12,18 +12,18 @@ class CreateDealershipDTO
         public string $phone,
         public int $createdBy,
         public bool $isActive = false,
-    ){}
+    ) {}
 
     public function toArray(): array
     {
         return [
-          'name' => $this->name,
-          'address' => $this->address,
-          'city' => $this->city,
-          'state' => $this->state,
-          'phone' => $this->phone,
-          'createdBy' => $this->createdBy,
-          'isActive' => $this->isActive,
+            'name' => $this->name,
+            'address' => $this->address,
+            'city' => $this->city,
+            'state' => $this->state,
+            'phone' => $this->phone,
+            'createdBy' => $this->createdBy,
+            'isActive' => $this->isActive,
         ];
     }
 }

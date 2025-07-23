@@ -19,13 +19,13 @@ class AuthServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        Gate::define('access-scans', fn(User $user, int $storeId): bool => $user->hasPermission('scans', $storeId));
+        Gate::define('access-scans', fn (User $user, int $storeId): bool => $user->hasPermission('scans', $storeId));
 
-        Gate::define('access-audits', fn(User $user, int $storeId): bool => $user->hasPermission('audits', $storeId));
+        Gate::define('access-audits', fn (User $user, int $storeId): bool => $user->hasPermission('audits', $storeId));
 
-        Gate::define('access-vendors', fn(User $user, int $storeId): bool => $user->hasPermission('vendors', $storeId));
+        Gate::define('access-vendors', fn (User $user, int $storeId): bool => $user->hasPermission('vendors', $storeId));
 
-        Gate::define('access-courses', fn(User $user, int $storeId): bool => $user->hasPermission('courses', $storeId));
+        Gate::define('access-courses', fn (User $user, int $storeId): bool => $user->hasPermission('courses', $storeId));
 
         Gate::define('admin-only', static fn (User $user): bool => $user->isAdmin());
 

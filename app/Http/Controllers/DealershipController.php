@@ -18,7 +18,7 @@ class DealershipController extends Controller
         $this->authorize('viewAny', Dealership::class);
 
         return Inertia::render('Dealerships/Index', [
-            'dealerships' => DealershipResource::collection(Dealership::all()),
+            'dealerships' => DealershipResource::collection(Dealership::all())->resolve(),
         ]);
     }
 
@@ -45,7 +45,7 @@ class DealershipController extends Controller
         return new DealershipResource($dealership);
     }
 
-    public function destroy(Dealership $dealership)
+    public function destroy(Dealership $dealership): \Illuminate\Http\JsonResponse
     {
         $this->authorize('delete', $dealership);
 

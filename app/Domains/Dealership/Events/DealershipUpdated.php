@@ -13,5 +13,5 @@ class DealershipUpdated
     public function __construct(
         public readonly Dealership $original,
         public readonly Dealership $updated
-    ){}
+    ) {}
 }

@@ -33,6 +33,7 @@ class DealershipPolicy
         if ($user->isAdmin()) {
             return true;
         }
+
         return $user->isConsultant();
     }
 

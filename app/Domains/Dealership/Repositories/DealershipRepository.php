@@ -52,7 +52,7 @@ class DealershipRepository implements DealershipRepositoryInterface
 
     public function findByUser(int $userId): Collection
     {
-        return Dealership::whereHas('users', function ($query) use ($userId) {
+        return Dealership::whereHas('users', function ($query) use ($userId): void {
             $query->where('user_id', $userId);
         })->with(['users', 'stores'])->get();
     }

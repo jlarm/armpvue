@@ -15,7 +15,7 @@ class DealershipService
 {
     public function __construct(
         private readonly DealershipRepositoryInterface $repository
-    ){}
+    ) {}
 
     public function getAllDealerships(): Collection
     {

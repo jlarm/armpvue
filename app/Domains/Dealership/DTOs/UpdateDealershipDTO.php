@@ -12,7 +12,7 @@ class UpdateDealershipDTO
         public string $phone,
         public int $createdBy,
         public bool $isActive = false,
-    ){}
+    ) {}
 
     public function toArray(): array
     {

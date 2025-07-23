@@ -12,5 +12,5 @@ class DealershipCreated
 
     public function __construct(
         public readonly Dealership $dealership
-    ){}
+    ) {}
 }
