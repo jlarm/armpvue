@@ -18,21 +18,21 @@ class PermissionController extends Controller
         return PermissionResource::collection(Permission::all());
     }
 
-    public function store(PermissionRequest $request)
+    public function store(PermissionRequest $request): \App\Http\Resources\PermissionResource
     {
         $this->authorize('create', Permission::class);
 
         return new PermissionResource(Permission::create($request->validated()));
     }
 
-    public function show(Permission $permission)
+    public function show(Permission $permission): \App\Http\Resources\PermissionResource
     {
         $this->authorize('view', $permission);
 
         return new PermissionResource($permission);
     }
 
-    public function update(PermissionRequest $request, Permission $permission)
+    public function update(PermissionRequest $request, Permission $permission): \App\Http\Resources\PermissionResource
     {
         $this->authorize('update', $permission);
 

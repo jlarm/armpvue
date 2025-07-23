@@ -18,21 +18,21 @@ class UserPermissionController extends Controller
         return UserPermissionResource::collection(UserPermission::all());
     }
 
-    public function store(UserPermissionRequest $request)
+    public function store(UserPermissionRequest $request): \App\Http\Resources\UserPermissionResource
     {
         $this->authorize('create', UserPermission::class);
 
         return new UserPermissionResource(UserPermission::create($request->validated()));
     }
 
-    public function show(UserPermission $userPermission)
+    public function show(UserPermission $userPermission): \App\Http\Resources\UserPermissionResource
     {
         $this->authorize('view', $userPermission);
 
         return new UserPermissionResource($userPermission);
     }
 
-    public function update(UserPermissionRequest $request, UserPermission $userPermission)
+    public function update(UserPermissionRequest $request, UserPermission $userPermission): \App\Http\Resources\UserPermissionResource
     {
         $this->authorize('update', $userPermission);
 

@@ -15,6 +15,7 @@ class DealershipPolicy
         if ($user->isAdmin()) {
             return true;
         }
+
         return $user->isConsultant();
     }
 
@@ -29,7 +30,10 @@ class DealershipPolicy
 
     public function create(User $user): bool
     {
-        return $user->isAdmin() || $user->isConsultant();
+        if ($user->isAdmin()) {
+            return true;
+        }
+        return $user->isConsultant();
     }
 
     public function update(User $user, Dealership $dealership): bool

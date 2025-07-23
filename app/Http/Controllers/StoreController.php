@@ -18,21 +18,21 @@ class StoreController extends Controller
         return StoreResource::collection(Store::all());
     }
 
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): \App\Http\Resources\StoreResource
     {
         $this->authorize('create', Store::class);
 
         return new StoreResource(Store::create($request->validated()));
     }
 
-    public function show(Store $store)
+    public function show(Store $store): \App\Http\Resources\StoreResource
     {
         $this->authorize('view', $store);
 
         return new StoreResource($store);
     }
 
-    public function update(StoreRequest $request, Store $store)
+    public function update(StoreRequest $request, Store $store): \App\Http\Resources\StoreResource
     {
         $this->authorize('update', $store);
 

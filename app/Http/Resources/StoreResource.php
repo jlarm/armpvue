@@ -25,7 +25,7 @@ class StoreResource extends JsonResource
 
             'dealership_id' => $this->dealership_id,
 
-            'dealership' => new DealershipResource($this->whenLoaded('dealership')),
+            'Dealerships' => new DealershipResource($this->whenLoaded('dealership')),
         ];
     }
 }

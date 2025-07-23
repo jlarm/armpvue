@@ -6,16 +6,20 @@ use App\Http\Requests\DealershipRequest;
 use App\Http\Resources\DealershipResource;
 use App\Models\Dealership;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class DealershipController extends Controller
 {
     use AuthorizesRequests;
 
-    public function index()
+    public function index(): Response
     {
         $this->authorize('viewAny', Dealership::class);
 
-        return DealershipResource::collection(Dealership::all());
+        return Inertia::render('Dealerships/Index', [
+            'dealerships' => DealershipResource::collection(Dealership::all()),
+        ]);
     }
 
     public function store(DealershipRequest $request): \App\Http\Resources\DealershipResource
