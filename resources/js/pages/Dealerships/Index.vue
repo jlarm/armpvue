@@ -71,19 +71,17 @@ const breadcrumbs: BreadcrumbItem[] = [
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h1 class="text-2xl font-bold tracking-tight">Dealerships</h1>
-                    <p class="text-muted-foreground">
-                        Manage and track your dealership relationships
-                    </p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <Button variant="outline" @click="clearFilters" v-if="searchQuery">
-                        Clear Filters
-                    </Button>
+                    <Button>Create Dealership</Button>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <div class="relative flex-1">
+            <div class="flex flex-col justify-end gap-4 sm:flex-row sm:items-center">
+                <Button variant="outline" @click="clearFilters" v-if="searchQuery">
+                    Clear Filters
+                </Button>
+                <div class="relative w-[300px]">
                     <Search class="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
                     <Input
                         placeholder="Search dealerships..."
@@ -93,39 +91,31 @@ const breadcrumbs: BreadcrumbItem[] = [
                 </div>
             </div>
 
-            <Card class="flex-1 border-none shadow-none">
-                <CardHeader>
-                    <CardTitle>Dealerships</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div class="overflow-x-auto">
-                        <Table>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead>Name</TableHead>
-                                    <TableHead>Location</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                <TableRow v-for="dealership in paginatedDealerships" :key="dealership.id">
-                                    <TableCell>{{ dealership.name }}</TableCell>
-                                    <TableCell>
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Location</TableHead>
+                        <TableHead></TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    <TableRow v-for="dealership in paginatedDealerships" :key="dealership.id">
+                        <TableCell>{{ dealership.name }}</TableCell>
+                        <TableCell>
                                     <span class="flex items-center gap-1">
                                         <MapPin class="h3 w-3" />
                                         {{ dealership.city }}, {{ dealership.state }}
                                     </span>
-                                    </TableCell>
-                                    <TableCell class="text-right">
-                                        <Link :href="route('dealerships.show', dealership.uuid)">
-                                            View
-                                        </Link>
-                                    </TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </div>
-                </CardContent>
-            </Card>
+                        </TableCell>
+                        <TableCell class="text-right">
+                            <Link :href="route('dealerships.show', dealership.uuid)" prefetch>
+                                View
+                            </Link>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
         </div>
     </AppLayout>
 </template>

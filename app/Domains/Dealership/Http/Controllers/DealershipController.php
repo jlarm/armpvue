@@ -34,6 +34,8 @@ class DealershipController extends Controller
     {
         $this->authorize('view', $dealership);
 
+        $dealership->load('stores');
+
         return Inertia::render('Dealerships/Show', [
             'dealership' => new DealershipResource($dealership),
         ]);

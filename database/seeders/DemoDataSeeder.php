@@ -52,6 +52,16 @@ class DemoDataSeeder extends Seeder
             'is_active' => true,
         ]);
 
+        Dealership::create([
+            'uuid' => (string) Str::uuid(),
+            'name' => 'Victor Ford',
+            'address' => '123 Main Street',
+            'city' => 'Chicago',
+            'state' => 'Il',
+            'phone' => '(555) 123-4567',
+            'created_by' => $employee->id,
+        ]);
+
         $consultant->dealerships()->attach($dealership->id);
 
         $employee->dealerships()->attach($dealership->id);
