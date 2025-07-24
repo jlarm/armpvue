@@ -13,6 +13,7 @@ class DealershipResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'uuid' => $this->uuid,
             'name' => $this->name,
             'address' => $this->address,
             'city' => $this->city,
@@ -21,7 +22,6 @@ class DealershipResource extends JsonResource
             'is_active' => $this->is_active,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-
             'created_by' => $this->created_by,
         ];
     }

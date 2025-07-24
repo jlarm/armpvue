@@ -23,21 +23,23 @@ class DealershipController extends Controller
         ]);
     }
 
-    public function store(DealershipRequest $request): \App\Http\Resources\DealershipResource
+    public function store(DealershipRequest $request): DealershipResource
     {
         $this->authorize('create', Dealership::class);
 
         return new DealershipResource(Dealership::create($request->validated()));
     }
 
-    public function show(Dealership $dealership): \App\Http\Resources\DealershipResource
+    public function show(Dealership $dealership): Response
     {
         $this->authorize('view', $dealership);
 
-        return new DealershipResource($dealership);
+        return Inertia::render('Dealerships/Show', [
+            'dealership' => new DealershipResource($dealership),
+        ]);
     }
 
-    public function update(DealershipRequest $request, Dealership $dealership): \App\Http\Resources\DealershipResource
+    public function update(DealershipRequest $request, Dealership $dealership): DealershipResource
     {
         $this->authorize('update', $dealership);
 

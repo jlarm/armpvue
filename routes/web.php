@@ -15,7 +15,8 @@ Route::get('dashboard', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('dealerships')->group(function () {
-        Route::get('/', [DealershipController::class, 'index'])->name('index');
+        Route::get('/', [DealershipController::class, 'index'])->name('dealerships.index');
+        Route::get('/{dealership:uuid}', [DealershipController::class, 'show'])->name('dealerships.show');
     });
 
 });

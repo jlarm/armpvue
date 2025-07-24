@@ -2,16 +2,17 @@
 
 import type { BreadcrumbItem } from '@/types';
 import AppLayout from '@/layouts/AppLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Search, Filter, MoreHorizontal, Phone, MapPin, Star, Building2 } from 'lucide-vue-next';
+import { Search, MapPin } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 interface Dealership {
     id: number;
+    uuid: string;
     name: string;
     address: string;
     city: string;
@@ -115,7 +116,9 @@ const breadcrumbs: BreadcrumbItem[] = [
                                     </span>
                                     </TableCell>
                                     <TableCell class="text-right">
-                                        <Button>View</Button>
+                                        <Link :href="route('dealerships.show', dealership.uuid)">
+                                            View
+                                        </Link>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>

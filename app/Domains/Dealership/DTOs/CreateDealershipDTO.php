@@ -5,6 +5,7 @@ namespace App\Domains\Dealership\DTOs;
 class CreateDealershipDTO
 {
     public function __construct(
+        public string $uuid,
         public string $name,
         public string $address,
         public string $city,
@@ -17,6 +18,7 @@ class CreateDealershipDTO
     public function toArray(): array
     {
         return [
+            'uuid' => $this->uuid,
             'name' => $this->name,
             'address' => $this->address,
             'city' => $this->city,

@@ -9,6 +9,7 @@ class DealershipRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'uuid' => ['required', 'uuid'],
             'name' => ['required', 'string', 'min:3', 'max:255', 'unique:dealerships,name'],
             'address' => ['nullable', 'string', 'min:3', 'max:255'],
             'city' => ['nullable', 'string', 'min:3', 'max:255'],
