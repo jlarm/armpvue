@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('dealerships', function (Blueprint $table): void {
             $table->id();
+            $table->uuid();
             $table->string('name');
             $table->string('address')->nullable();
             $table->string('city')->nullable();

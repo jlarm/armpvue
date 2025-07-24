@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Domains\Dealership\Http\Controllers;
 
 use App\Domains\Dealership\Models\Dealership;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\DealershipRequest;
 use App\Http\Resources\DealershipResource;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

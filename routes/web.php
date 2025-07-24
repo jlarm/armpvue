@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\DealershipController;
+use App\Domains\Dealership\Http\Controllers\DealershipController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 

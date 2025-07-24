@@ -11,10 +11,10 @@ use App\Domains\Dealership\Models\Dealership;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class DealershipService
+readonly class DealershipService
 {
     public function __construct(
-        private readonly DealershipRepositoryInterface $repository
+        private DealershipRepositoryInterface $repository
     ) {}
 
     public function getAllDealerships(): Collection

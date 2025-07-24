@@ -7,6 +7,7 @@ use App\Domains\Permission\Models\Permission;
 use App\Domains\Store\Models\Store;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Str;
 
 class DemoDataSeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class DemoDataSeeder extends Seeder
         $employee = User::where('email', 'femployee@dealer.com')->first();
 
         $dealership = Dealership::create([
+            'uuid' => (string) Str::uuid(),
             'name' => 'Premium Auto Dealership',
             'address' => '123 Main Street',
             'city' => 'City',
@@ -27,6 +29,7 @@ class DemoDataSeeder extends Seeder
 
         // Create stores
         $mainStore = Store::create([
+            'uuid' => (string) Str::uuid(),
             'dealership_id' => $dealership->id,
             'name' => 'Main Showroom',
             'address' => '123 Main Street',
@@ -38,6 +41,7 @@ class DemoDataSeeder extends Seeder
         ]);
 
         $serviceStore = Store::create([
+            'uuid' => (string) Str::uuid(),
             'dealership_id' => $dealership->id,
             'name' => 'Service Center',
             'address' => '125 Main Street',

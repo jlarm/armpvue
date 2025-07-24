@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table): void {
             $table->id();
+            $table->uuid();
             $table->foreignId('dealership_id')->constrained('dealerships');
             $table->string('name');
             $table->string('address')->nullable();
