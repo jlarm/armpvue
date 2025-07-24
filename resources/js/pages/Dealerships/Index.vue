@@ -4,7 +4,6 @@ import type { BreadcrumbItem } from '@/types';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import { computed, ref } from 'vue';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Search, MapPin } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
@@ -17,6 +16,7 @@ interface Dealership {
     address: string;
     city: string;
     state: string;
+    consultants: string[];
 }
 
 interface Props {
@@ -54,19 +54,12 @@ const clearFilters = () => {
     searchQuery.value = '';
     currentPage.value = 1;
 }
-
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dealerships',
-        href: '/dealerships',
-    },
-]
 </script>
 
 <template>
     <Head title="Dealerships" />
 
-    <AppLayout :breadcrumbs="breadcrumbs">
+    <AppLayout>
         <div class="flex h-full flex-1 flex-col gap-6 rounded-xl p-4">
             <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>

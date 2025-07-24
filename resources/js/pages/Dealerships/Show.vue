@@ -47,17 +47,6 @@ const selectedStore = ref<Store | null>(
     null
 );
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dealerships',
-        href: '/dealerships',
-    },
-    {
-        title: props.dealership?.data?.name || 'Loading...',
-        href: '#',
-    }
-];
-
 const selectStore = (store: Store) => {
     selectedStore.value = store;
 };

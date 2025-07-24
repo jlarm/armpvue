@@ -19,7 +19,7 @@ class DealershipController extends Controller
         $this->authorize('viewAny', Dealership::class);
 
         return Inertia::render('Dealerships/Index', [
-            'dealerships' => DealershipResource::collection(Dealership::all())->resolve(),
+            'dealerships' => DealershipResource::collection(Dealership::with('consultants')->get())->resolve(),
         ]);
     }
 
